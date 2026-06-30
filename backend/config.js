@@ -1,12 +1,16 @@
 export const config = {
   port: process.env.PORT ?? 3001,
   frontendUrl: process.env.FRONTEND_URL ?? 'http://localhost:5173',
-  useMockMezzoteam: process.env.USE_MOCK_MEZZOTEAM === 'true',
+  useMockMezzoteam: envFlag('USE_MOCK_MEZZOTEAM'),
   mezzoteamApiBase: process.env.MEZZOTEAM_API_BASE ?? 'https://api.mezzoteam.com',
   mezzoteamApiVersion: process.env.MEZZOTEAM_API_VERSION ?? '3.4',
-  useMockTrimble: process.env.USE_MOCK_TRIMBLE === 'true',
+  useMockTrimble: envFlag('USE_MOCK_TRIMBLE'),
   trimbleApiBase: process.env.TRIMBLE_API_BASE ?? 'https://app.connect.trimble.com/tc/api/2.0',
 };
+
+function envFlag(name) {
+  return (process.env[name] ?? '').trim().toLowerCase() === 'true';
+}
 
 export function mezzoteamApiPath(suffix) {
   return `/mezzoteam/${config.mezzoteamApiVersion}${suffix}`;
