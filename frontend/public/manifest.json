@@ -1,0 +1,21 @@
+{
+  "name": "Navigateur Mezzoteam",
+  "version": "1.1.0",
+  "description": "Navigateur Mezzoteam et copie bidirectionnelle de fichiers depuis Trimble Connect",
+  "app_url": "https://trb-mezzoteam.vercel.app/",
+  "icon_url": "https://trb-mezzoteam.vercel.app/assets/mezzoteam-icon.png",
+  "permissions": [
+    "project.read",
+    "user.read",
+    "data.read",
+    "data.write",
+    "accesstoken"
+  ],
+  "extension_points": [
+    {
+      "type": "ProjectLeftPanel",
+      "label": "Mezzoteam",
+      "icon_url": "https://trb-mezzoteam.vercel.app/assets/mezzoteam-icon.png"
+    }
+  ]
+}

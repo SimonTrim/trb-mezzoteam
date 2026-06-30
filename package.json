@@ -1,0 +1,14 @@
+{
+  "name": "trimble-mezzoteam-connector",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Connecteur Trimble Connect & Mezzoteam",
+  "scripts": {
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev:backend": "npm run dev --prefix backend",
+    "build:frontend": "npm run build --prefix frontend",
+    "manifest": "node scripts/generate-manifest.mjs",
+    "start:backend": "npm start --prefix backend",
+    "install:all": "npm install --prefix frontend && npm install --prefix backend"
+  }
+}

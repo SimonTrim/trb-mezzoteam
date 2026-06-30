@@ -1,0 +1,7 @@
+{
+  "title": "Navigateur Mezzoteam",
+  "url": "https://trb-mezzoteam.vercel.app/",
+  "icon": "https://trb-mezzoteam.vercel.app/assets/mezzoteam-icon.png",
+  "description": "Navigateur Mezzoteam et copie bidirectionnelle de fichiers depuis Trimble Connect",
+  "enabled": true
+}

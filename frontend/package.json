@@ -1,0 +1,26 @@
+{
+  "name": "trimble-mezzoteam-connector-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "prebuild": "node ../scripts/generate-manifest.mjs",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@trimble-oss/moduswebcomponents": "^1.8.0",
+    "@trimble-oss/moduswebcomponents-react": "^1.8.0-react19",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "trimble-connect-workspace-api": "^0.3.34"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@vitejs/plugin-react": "^4.4.1",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5"
+  }
+}
