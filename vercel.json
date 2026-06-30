@@ -4,15 +4,13 @@
   "buildCommand": "node scripts/generate-manifest.mjs && npm run build --prefix frontend",
   "outputDirectory": "frontend/dist",
   "functions": {
-    "api/index.js": {
+    "api/[...path].js": {
       "includeFiles": "backend/**",
-      "memory": 1024,
       "maxDuration": 30
     }
   },
   "rewrites": [
-    { "source": "/health", "destination": "/api/health" },
-    { "source": "/api/(.*)", "destination": "/api" }
+    { "source": "/health", "destination": "/api/health" }
   ],
   "headers": [
     {

@@ -30,20 +30,23 @@ app.use(
 );
 app.use(express.json({ limit: '25mb' }));
 app.use(cookieParser());
-app.use(
-  session({
-    name: 'mezzoteam.sid',
-    secret: process.env.SESSION_SECRET ?? 'dev-secret-change-me',
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-      httpOnly: true,
-      secure: isDeployed,
-      sameSite: isDeployed ? 'lax' : 'lax',
-      maxAge: 24 * 60 * 60 * 1000,
-    },
-  }),
-);
+
+if (!process.env.VERCEL) {
+  app.use(
+    session({
+      name: 'mezzoteam.sid',
+      secret: process.env.SESSION_SECRET ?? 'dev-secret-change-me',
+      resave: false,
+      saveUninitialized: false,
+      cookie: {
+        httpOnly: true,
+        secure: isDeployed,
+        sameSite: 'lax',
+        maxAge: 24 * 60 * 60 * 1000,
+      },
+    }),
+  );
+}
 
 const authRouter = express.Router();
 createAuthRoutes(authRouter);
