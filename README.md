@@ -4,6 +4,21 @@ Extension **Trimble Connect for Browser** (panneau projet) permettant de navigue
 
 L’application front-end s’exécute dans une **iframe** Trimble Connect et communique avec un **proxy Node.js** qui sécurise les appels vers les API Mezzoteam et Trimble Connect (TCPS).
 
+## Déploiement en ligne (production)
+
+| Ressource | URL |
+|-----------|-----|
+| Application | https://trb-mezzoteam.vercel.app/ |
+| **Manifeste extension** (à coller dans Trimble Connect) | **https://trb-mezzoteam.vercel.app/manifest.json** |
+| Manifeste alternatif (format Workspace API) | https://trb-mezzoteam.vercel.app/manifest.workspace.json |
+| API santé | https://trb-mezzoteam.vercel.app/health |
+| Dépôt GitHub | https://github.com/SimonTrim/trb-mezzoteam |
+| Projet Vercel | https://vercel.com/simon-martin-9107s-projects/trb-mezzoteam |
+
+> **Icône :** ajoutez `frontend/public/assets/mezzoteam-icon.png` puis poussez sur `master` pour redéployer (ou lancez `vercel deploy --prod`).
+
+Le manifeste est **régénéré automatiquement** au build Vercel avec l’URL de production (`VERCEL_PROJECT_PRODUCTION_URL`).
+
 ## Sommaire
 
 - [Architecture](#architecture)
@@ -35,7 +50,7 @@ L’application front-end s’exécute dans une **iframe** Trimble Connect et co
                              │ HTTPS /api/*
                              ▼
 ┌─────────────────────────────────────────────────────────────┐
-│  Backend Express (proxy) — port 3001                        │
+│  Backend Express (proxy) — Vercel serverless `/api/*`       │
 │  • OAuth2 Mezzoteam (session HTTP-only)                   │
 │  • Appels REST Mezzoteam + Trimble Connect                  │
 │  • Mode mock pour le développement local                    │
